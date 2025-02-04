@@ -17,7 +17,7 @@ const Register = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await register(email, password, name, 'user');
+      await register(email, password, name, 'customer');
       toast({
         title: "Success",
         description: "Account created successfully",

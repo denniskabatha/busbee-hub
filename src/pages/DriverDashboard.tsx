@@ -1,6 +1,6 @@
 import { useAuth } from "@/contexts/AuthContext";
 import { Card } from "@/components/ui/card";
-import { Route, Users, Calendar, Clock, MapPin, Fuel, Tool, FileText, Bell, MessageSquare } from "lucide-react";
+import { Route, Users, Calendar, Clock, MapPin, MessageSquare } from "lucide-react";
 
 export default function DriverDashboard() {
   const { user } = useAuth();
@@ -11,10 +11,10 @@ export default function DriverDashboard() {
     { icon: Calendar, title: "Schedule", description: "View upcoming assignments" },
     { icon: Clock, title: "Time Log", description: "Track your working hours" },
     { icon: MapPin, title: "Navigation", description: "Get route directions" },
-    { icon: Fuel, title: "Fuel Log", description: "Record fuel consumption" },
-    { icon: Tool, title: "Maintenance", description: "Report vehicle issues" },
-    { icon: FileText, title: "Reports", description: "Submit daily reports" },
-    { icon: Bell, title: "Alerts", description: "Important notifications" },
+    { icon: Route, title: "Fuel Log", description: "Record fuel consumption" },
+    { icon: Clock, title: "Maintenance", description: "Report vehicle issues" },
+    { icon: Route, title: "Reports", description: "Submit daily reports" },
+    { icon: Clock, title: "Alerts", description: "Important notifications" },
     { icon: MessageSquare, title: "Communication", description: "Contact dispatch" }
   ];
 
