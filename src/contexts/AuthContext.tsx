@@ -1,16 +1,18 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
+type UserRole = 'customer' | 'driver';
+
 interface User {
   id: string;
   email: string;
-  role: 'user' | 'admin';
+  role: UserRole;
   name: string;
 }
 
 interface AuthContextType {
   user: User | null;
   login: (email: string, password: string) => Promise<void>;
-  register: (email: string, password: string, name: string, role: 'user' | 'admin') => Promise<void>;
+  register: (email: string, password: string, name: string, role: UserRole) => Promise<void>;
   logout: () => void;
   isLoading: boolean;
 }
@@ -22,7 +24,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Check local storage for existing session
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       setUser(JSON.parse(storedUser));
@@ -32,11 +33,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const login = async (email: string, password: string) => {
     try {
-      // Simulate API call
+      // Simulate API call - replace with actual authentication
       const mockUser = {
         id: '1',
         email,
-        role: 'user' as const,
+        role: 'customer' as UserRole,
         name: 'John Doe',
       };
       setUser(mockUser);
@@ -47,9 +48,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const register = async (email: string, password: string, name: string, role: 'user' | 'admin') => {
+  const register = async (email: string, password: string, name: string, role: UserRole) => {
     try {
-      // Simulate API call
       const mockUser = {
         id: '1',
         email,
